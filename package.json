@@ -7,6 +7,7 @@
     "dev": "npm run serve",
     "serve": "cross-env NODE_ENV=development webpack serve",
     "build": "cross-env NODE_ENV=production webpack --progress",
+    "build:test": "cross-env NODE_ENV=test webpack --progress",
     "build:zip": "cross-env BUILD_ZIP=true npm run build",
     "watch": "cross-env NODE_ENV=development webpack --watch --progress",
     "lint": "eslint ./src --ext .ts,.js",
