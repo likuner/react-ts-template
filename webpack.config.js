@@ -4,6 +4,7 @@ const dotenvExpand = require('dotenv-expand')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const FileManagerPlugin = require('filemanager-webpack-plugin')
 
@@ -51,7 +52,7 @@ module.exports = () => {
   }
 
   const config = {
-    entry: './src/main.ts',
+    entry: './src/index.tsx',
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'js/[name].[contenthash].js',
@@ -64,13 +65,16 @@ module.exports = () => {
       alias: {
         '@': path.resolve(__dirname, 'src')
       },
-      extensions: ['.ts', '.tsx', '.js', '.jsx', '.less', '.css', '.json']
+      extensions: ['.tsx', '.ts', '.jsx', '.js', '.less', '.css', '.json']
     },
     optimization: {
       usedExports: true,
       splitChunks: {
         chunks: 'all'
-      }
+      },
+      minimizer: [
+        new CssMinimizerPlugin()
+      ]
     },
     module: {
       rules: [
@@ -85,8 +89,8 @@ module.exports = () => {
           test: /\.tsx?$/,
           exclude: /node_modules/,
           use: [
-            'ts-loader',
-            babelLoader
+            babelLoader,
+            'ts-loader'
           ]
         },
         {
@@ -159,7 +163,14 @@ module.exports = () => {
           }
         ]
       }),
-    ]
+    ],
+    devServer: {
+      open: true,
+      port: 3000,
+      client: {
+        overlay: false
+      }
+    }
   }
 
   if (BUILD_ZIP) {
