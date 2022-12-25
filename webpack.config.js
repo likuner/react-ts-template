@@ -3,6 +3,7 @@ const dotenv = require('dotenv')
 const dotenvExpand = require('dotenv-expand')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
@@ -35,7 +36,7 @@ module.exports = () => {
         auto: (resourcePath) => {
           return ['.module.less', '.module.css'].some(item => resourcePath.endsWith(item))
         },
-        localIdentName: '[local]_[hash:base64:8]'
+        localIdentName: '[local]_[hash:base64:10]'
       }
     }
   })
@@ -73,6 +74,7 @@ module.exports = () => {
         chunks: 'all'
       },
       minimizer: [
+        new TerserPlugin(),
         new CssMinimizerPlugin()
       ]
     },
@@ -133,7 +135,7 @@ module.exports = () => {
           type: 'asset',
           parser: {
             dataUrlCondition: {
-              maxSize: 8192
+              maxSize: 4096
             }
           }
         }
