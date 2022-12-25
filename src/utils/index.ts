@@ -1,5 +1,5 @@
 import { v4 as uuid } from 'uuid'
-import { get, PropertyPath } from 'lodash'
+import { get } from 'lodash'
 
 /**
  * 获取 uuid
