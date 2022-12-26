@@ -10,7 +10,9 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <ConfigProvider locale={zhCN}>
     <React.StrictMode>
-      <RouterProvider router={router} />
+      <React.Suspense>
+        <RouterProvider router={router} />
+      </React.Suspense>
     </React.StrictMode>
   </ConfigProvider>
 )
