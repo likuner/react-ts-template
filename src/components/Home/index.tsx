@@ -3,7 +3,7 @@ import styles from './index.module.less'
 import logo from '../../assets/logo.png'
 import { Alert, Image, Input, Space } from 'antd'
 
-export default function Demo() {
+const Home: React.FC = () => {
   const [msg, setMsg] = useState('Welcome to React Template!')
 
   const handleChange = (e: any) => {
@@ -11,10 +11,12 @@ export default function Demo() {
   }
 
   return (
-    <Space direction='vertical' size='middle' className={styles.container}>
+    <Space direction="vertical" size="middle" className={styles.container}>
       <Image src={logo} width={100} />
-      <Alert type='info' message={msg} />
+      <Alert type="info" message={msg} />
       <Input value={msg} onChange={handleChange}/>
     </Space>
   )
 }
+
+export default Home

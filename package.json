@@ -4,6 +4,7 @@
   "description": "A template for react and typescript.",
   "scripts": {
     "dev": "npm run serve",
+    "dev:open": "cross-env OPEN=true npm run dev",
     "serve": "cross-env NODE_ENV=development webpack serve",
     "build": "cross-env NODE_ENV=production webpack --progress",
     "build:test": "cross-env NODE_ENV=test webpack --progress",

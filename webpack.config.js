@@ -9,7 +9,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const FileManagerPlugin = require('filemanager-webpack-plugin')
 
-const { NODE_ENV, BUILD_ZIP } = process.env
+const { NODE_ENV, BUILD_ZIP, OPEN } = process.env
 const isProd = NODE_ENV === 'production'
 
 dotenvExpand.expand(dotenv.config({ path: `./.env.${NODE_ENV}` }))
@@ -167,11 +167,12 @@ module.exports = () => {
       }),
     ],
     devServer: {
-      open: true,
+      open: Boolean(OPEN),
       port: 3000,
       client: {
         overlay: false
-      }
+      },
+      historyApiFallback: true
     }
   }
 

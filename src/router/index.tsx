@@ -1,17 +1,27 @@
 import React from 'react'
-import { createBrowserRouter, RouteObject } from 'react-router-dom'
-import Demo from '../components/Demo'
-import Layout from '../components/Layout'
+import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom'
+import Layout from '../views/Layout'
+import Home from '../components/Home'
+import About from '../components/About'
+import ErrorPage from '../views/ErrorPage'
 
 const routes: RouteObject[] = [
   {
     path: '/',
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
-        // path: 'about',
-        element: <Demo />
+        element: <Home />
+      },
+      {
+        path: 'home',
+        element: <Navigate to='/' />
+      },
+      {
+        path: 'about',
+        element: <About />
       }
     ]
   }
