@@ -8,14 +8,7 @@ import 'antd/dist/reset.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
-  <ConfigProvider
-    locale={zhCN}
-    theme={{
-      token: {
-        colorPrimary: '#00b96b'
-      }
-    }}
-  >
+  <ConfigProvider locale={zhCN}>
     <React.StrictMode>
       <RouterProvider router={router} />
     </React.StrictMode>
