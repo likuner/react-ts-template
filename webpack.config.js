@@ -27,6 +27,13 @@ module.exports = () => {
       ]
     }
   }
+
+  const tsLoader = {
+    loader: 'ts-loader',
+    options: {
+      configFile: path.resolve(__dirname, 'tsconfig.json')
+    }
+  }
   
   const cssLoader = (importLoaders = 1) => ({
     loader: 'css-loader',
@@ -94,14 +101,14 @@ module.exports = () => {
           exclude: /node_modules/,
           use: [
             babelLoader,
-            'ts-loader'
+            tsLoader
           ]
         },
         {
           test: /\.ts$/,
           exclude: /node_modules/,
           use: [
-            'ts-loader'
+            tsLoader
           ]
         },
         {
