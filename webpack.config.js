@@ -77,6 +77,9 @@ module.exports = () => {
         new CssMinimizerPlugin()
       ]
     },
+    performance: {
+      hints: false
+    },
     module: {
       rules: [
         {
