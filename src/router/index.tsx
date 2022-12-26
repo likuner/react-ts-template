@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom'
 import Layout from '../views/Layout'
-import Home from '../components/Home'
-import About from '../components/About'
-import ErrorPage from '../views/ErrorPage'
+
+const Home = lazy(() => import('../components/Home'))
+const About = lazy(() => import('../components/About'))
+const ErrorPage = lazy(() => import('../views/ErrorPage'))
 
 const routes: RouteObject[] = [
   {
