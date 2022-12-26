@@ -69,7 +69,6 @@ module.exports = () => {
       extensions: ['.tsx', '.ts', '.jsx', '.js', '.less', '.css', '.json']
     },
     optimization: {
-      usedExports: true,
       splitChunks: {
         chunks: 'all'
       },
@@ -104,7 +103,6 @@ module.exports = () => {
         },
         {
           test: /\.less$/,
-          sideEffects: true,
           use: [
             MiniCssExtractPlugin.loader,
             cssLoader(2),
@@ -123,7 +121,6 @@ module.exports = () => {
         },
         {
           test: /\.css$/,
-          sideEffects: true,
           use: [
             MiniCssExtractPlugin.loader,
             cssLoader(),
