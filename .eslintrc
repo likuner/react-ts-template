@@ -8,6 +8,11 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -18,7 +23,8 @@
   },
   "plugins": [
     "react",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "react-hooks"
   ],
   "ignorePatterns": [
     "dist",
@@ -28,6 +34,8 @@
   "rules": {
     "quotes": ["error", "single"],
     "semi": ["error", "never"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
