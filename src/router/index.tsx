@@ -6,7 +6,7 @@ const Home = lazy(() => import('../components/Home'))
 const About = lazy(() => import('../components/About'))
 const ErrorPage = lazy(() => import('../views/ErrorPage'))
 
-const routes: RouteObject[] = [
+export const routes: RouteObject[] = [
   {
     path: '/',
     element: <Layout />,

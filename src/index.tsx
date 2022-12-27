@@ -6,8 +6,9 @@ import { ConfigProvider } from 'antd'
 import zhCN from 'antd/locale/zh_CN'
 import 'antd/dist/reset.css'
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-root.render(
+ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+).render(
   <ConfigProvider locale={zhCN}>
     <React.StrictMode>
       <React.Suspense>

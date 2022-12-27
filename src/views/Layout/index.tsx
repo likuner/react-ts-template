@@ -1,9 +1,9 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import RouterBeforeEach from '../../router/RouterBeforeEach'
 
 const Layout: React.FC = () => {
   return (
-    <Outlet />
+    <RouterBeforeEach />
   )
 }
 
