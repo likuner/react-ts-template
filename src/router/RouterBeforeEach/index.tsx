@@ -7,7 +7,7 @@ const RouterBeforeEach: React.FC = () => {
   const location = useLocation()
 
   useEffect(() => {
-    console.log(location, 'location')
+    // console.log(location, 'location')
     // if (location.pathname.includes('/about')) {
     //   navigate('/')
     // }
