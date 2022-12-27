@@ -21,7 +21,7 @@ const routes: RouteObject[] = [
         element: <Navigate to='/' />
       },
       {
-        path: 'about',
+        path: 'about/:title?',
         element: <About />
       }
     ]

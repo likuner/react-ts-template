@@ -65,6 +65,7 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
       filename: 'js/[name].[contenthash].js',
       assetModuleFilename: 'assets/[name].[contenthash][ext][query]',
+      publicPath: '/',
       clean: true
     },
     mode: isProd ? 'production' : 'development',
