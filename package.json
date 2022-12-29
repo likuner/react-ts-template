@@ -29,6 +29,10 @@
     "url": "https://github.com/likuner/react-ts-template/issues"
   },
   "homepage": "https://github.com/likuner/react-ts-template#readme",
+  "sideEffects": [
+    "*.css",
+    "*.less"
+  ],
   "dependencies": {
     "antd": "^5.1.0",
     "lodash": "^4.17.21",

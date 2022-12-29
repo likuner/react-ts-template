@@ -70,6 +70,7 @@ module.exports = () => {
       extensions: ['.tsx', '.ts', '.jsx', '.js', '.less', '.css', '.json']
     },
     optimization: {
+      sideEffects: true,
       splitChunks: {
         chunks: 'all'
       },
