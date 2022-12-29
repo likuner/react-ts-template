@@ -8,6 +8,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const FileManagerPlugin = require('filemanager-webpack-plugin')
+const { name, version } = require('./package.json')
 
 const { NODE_ENV, BUILD_ZIP, OPEN } = process.env
 const isProd = NODE_ENV === 'production'
@@ -52,6 +53,8 @@ module.exports = () => {
     }
   }
 
+  const buildTime = new Date().toLocaleString()
+
   const config = {
     entry: './src/index.tsx',
     output: {
@@ -69,18 +72,20 @@ module.exports = () => {
       },
       extensions: ['.tsx', '.ts', '.jsx', '.js', '.less', '.css', '.json']
     },
+    performance: {
+      hints: false
+    },
     optimization: {
       sideEffects: true,
       splitChunks: {
         chunks: 'all'
       },
       minimizer: [
-        new TerserPlugin(),
+        new TerserPlugin({
+          extractComments: false
+        }),
         new CssMinimizerPlugin()
       ]
-    },
-    performance: {
-      hints: false
     },
     module: {
       rules: [
@@ -149,7 +154,7 @@ module.exports = () => {
         title: 'React-Ts-Template',
         minify: false,
         externals: [],
-        buildTime: new Date().toLocaleString()
+        buildTime
       }),
       new MiniCssExtractPlugin({
         filename: 'css/[name].[contenthash].css'
@@ -165,6 +170,10 @@ module.exports = () => {
           }
         ]
       }),
+      new webpack.BannerPlugin({
+        banner: `${name}\nversion: ${version}\n${buildTime}`,
+        entryOnly: true
+      })
     ],
     devServer: {
       open: Boolean(OPEN),
