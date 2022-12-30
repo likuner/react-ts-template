@@ -172,7 +172,8 @@ module.exports = () => {
       }),
       new webpack.BannerPlugin({
         banner: `${name}\nversion: ${version}\n${buildTime}`,
-        entryOnly: true
+        entryOnly: true,
+        footer: true
       })
     ],
     devServer: {
