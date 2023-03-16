@@ -178,7 +178,7 @@ module.exports = () => {
     ],
     devServer: {
       open: Boolean(OPEN),
-      port: 3000,
+      port: 3001,
       client: {
         overlay: false
       },
